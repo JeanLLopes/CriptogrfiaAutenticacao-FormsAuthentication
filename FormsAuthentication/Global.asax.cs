@@ -21,27 +21,5 @@ namespace AAFormsAuthentication
             //Autenticadas
             FilterConfig.RouteConfig(GlobalFilters.Filters);
         }
-        //Evento que permite criar uma role do usuário
-        //Como funcionava antes do OWIN
-        public void Application_OnPostAuthorizeRequest()
-        {
-            var cookie = FormsAuthentication.FormsCookieName;
-
-            if (cookie == null)
-                return;
-
-            HttpCookie httpCookie = Context.Request.Cookies[cookie];
-
-            if (httpCookie == null)
-                return;
-
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(httpCookie.Value);
-
-            FormsIdentity identity = new FormsIdentity(ticket);
-
-            GenericPrincipal principal = new GenericPrincipal(identity, new[] { "Administrador" });
-
-            HttpContext.Current.User = principal;
-        }
     }
 }
