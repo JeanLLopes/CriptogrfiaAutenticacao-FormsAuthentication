@@ -25,6 +25,8 @@ namespace AAFormsAuthentication.Controllers
         [HttpPost]
         public ActionResult Index(LoginModel login, string returnUrl)
         {
+            //PRA DEIXAR O COOKIE PERSISTIR NO NAVEGADOR 
+            FormsAuthentication.SetAuthCookie("Jean",true);
             return View();
         }
 
