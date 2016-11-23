@@ -12,7 +12,7 @@ namespace AAFormsAuthentication.App_Start
         //o seguinte filtro
         public static void RouteConfig(GlobalFilterCollection filters)
         {
-            
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Web.Security;
 
 namespace AAFormsAuthentication.Controllers
 {
+    // ESTA CLASSE NÃO NECESSITA ESTAR COM O CLIENTE LOGADO
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
